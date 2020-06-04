@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.twopandas.myishupanda">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.twopandas.remind.HAMACT"
+            android:label="Happy Anniversary" />
+        <activity
+            android:name="com.twopandas.remind.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter
+                android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+                android:data="package:com.twopandas.myishupanda"
+                android:targetPackage="com.android.settings">
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.twopandas.remind.ui.tools.ToolsFragment" />
+
+        <service
+            android:name="com.twopandas.remind.ui.tools.AlarmService"
+            android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+            android:data="package:com.twopandas.myishupanda"
+            android:enabled="true"
+            android:targetPackage="com.android.settings" />
+
+        <receiver
+            android:name="com.twopandas.remind.ui.tools.AlarmRestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+            <intent-filter
+                android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+                android:data="package:com.twopandas.myishupanda"
+                android:targetPackage="com.android.settings">
+                <action android:name="com.twopandas.myishupanda.ui.tools.AlarmRestarterBroadcastReceiver.START_SERVICE" />
+            </intent-filter>
+            <intent-filter
+                android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+                android:data="package:com.twopandas.myishupanda"
+                android:targetPackage="com.android.settings">
+                <action android:name="com.twopandas.myishupanda.ui.tools.AlarmRestarterBroadcastReceiver.STOP_SERVICE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.twopandas.remind.ui.tools.ServiceStarter"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter
+                android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+                android:data="package:com.twopandas.myishupanda"
+                android:targetPackage="com.android.settings">
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.REBOOT" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.twopandas.remind.ui.tools.Notification_service"
+            android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+            android:data="package:com.twopandas.myishupanda"
+            android:enabled="true"
+            android:targetPackage="com.android.settings" />
+        <service
+            android:name="com.twopandas.remind.ui.tools.Foodandsleep_service"
+            android:action="android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+            android:data="package:com.twopandas.myishupanda"
+            android:enabled="true"
+            android:targetPackage="com.android.settings" />
+    </application>
+
+</manifest>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PandaAssistant</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Panda</string>
+    <string name="nav_header_subtitle">Personal Panda App</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_web">Visit WebSite</string>
+    <string name="action_close">Bye Panda</string>
+    <string name="menu_home">Panda</string>
+    <string name="menu_slideshow">Gallary</string>
+    <string name="menu_tools">Mini Panda</string>
+    <string name="menu_share">Call</string>
+    <string name="menu_send">Text</string>
+    <string name="imdesc">image</string>
+    <string name="welcomemsg">Welcome Brother</string>
+    <color name="textbody">#4A148C</color>
+    <string name="msg1"></string>
+    <string name="msg2"></string>
+
+</resources>
